@@ -1,0 +1,51 @@
+/* Start Varables */
+:root {
+  --main-color: hsl(0, 0%, 0%);
+}
+/* End Varables */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@font-face {
+  font-family: consola;
+  src: url(../fonts/consola.ttf);
+}
+.typing {
+  color: transparent;
+  font-family: consola;
+  font-size: 2em;
+  letter-spacing: 1px;
+  position: relative;
+}
+.typing::before {
+  content: attr(data-text);
+  color: var(--main-color);
+  white-space: nowrap;
+  border-right: 2px solid var(--main-color);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: typing 6s steps(9) infinite;
+}
+@keyframes typing {
+  0%,
+  100% {
+    width: 0;
+  }
+  50%,
+  70% {
+    width: 100%;
+  }
+}

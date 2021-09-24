@@ -1,0 +1,78 @@
+/* Start Varables */
+:root {
+  --main-color: hsl(0, 0%, 0%);
+}
+/* End Varables */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@font-face {
+  font-family: consola;
+  src: url(../fonts/consola.ttf);
+}
+.typing-list {
+  overflow: hidden;
+  font-family: consola;
+  font-size: 20px;
+  line-height: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+}
+.typing-list ul {
+  list-style: none;
+  height: 100%;
+  margin-left: 10px;
+  position: relative;
+  top: 0;
+  animation: list 10s steps(2) infinite;
+}
+@keyframes list {
+  100% {
+    top: -50px;
+  }
+}
+.typing-list ul li {
+  color: transparent;
+  width: fit-content;
+  height: 100%;
+  position: relative;
+}
+.typing-list ul li::after {
+  content: attr(data-text);
+  color: var(--main-color);
+  white-space: nowrap;
+  border-right: 1px solid var(--main-color);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: typing 5s infinite;
+}
+.typing-list ul li.typing-8::after {
+  animation-timing-function: steps(8);
+}
+.typing-list ul li.typing-9::after {
+  animation-timing-function: steps(9);
+}
+@keyframes typing {
+  0%,
+  100% {
+    width: 0;
+  }
+  50%,
+  70% {
+    width: 100%;
+  }
+}

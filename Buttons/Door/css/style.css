@@ -1,0 +1,88 @@
+/* ========================================================================================== */
+/* ============================== The Globel Rles ============================== */
+/* ========================================================================================== */
+:root {
+  --mian-duration: 0.5s;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  color: hsl(0, 0%, 100%);
+  background: hsl(228, 10%, 10%);
+  font: 300 1em "Fira Sans", sans-serif;
+  min-height: 100vh;
+  /* Center EveryThing */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+h1 {
+  font-weight: 400;
+}
+code {
+  color: hsl(49, 72%, 62%);
+  font: inherit;
+}
+button {
+  color: var(--color);
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  transition: var(--mian-duration);
+  padding: 1em 2em;
+  margin: 0.5em;
+}
+button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: hsl(0, 0%, 100%);
+}
+/* ========================================================================================== */
+/* ============================== The Door Button ============================== */
+/* ========================================================================================== */
+.door-button {
+  color: hsl(0, 0%, 100%);
+  border: 2px solid hsl(0, 0%, 100%);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 30px;
+  position: relative;
+}
+.door-button::before {
+  transform: scaleY(1);
+  transition: ease-in-out var(--mian-duration);
+  width: calc(100% + 5px);
+  height: calc(100% - 12px);
+  top: 6px;
+  left: -2.5px;
+}
+.door-button::after {
+  transform: scaleX(1);
+  transition: ease-in-out var(--mian-duration) var(--mian-duration);
+  width: calc(100% - 12px);
+  height: calc(100% + 5px);
+  top: -2.5px;
+  left: 6px;
+}
+.door-button::before,
+.door-button::after {
+  content: "";
+  background: hsl(228, 10%, 10%);
+  position: absolute;
+}
+.door-button:hover::before {
+  transform: scaleY(0);
+}
+.door-button:hover::after {
+  transform: scaleX(0);
+}
+.door-button span {
+  position: relative;
+  z-index: 2;
+}
