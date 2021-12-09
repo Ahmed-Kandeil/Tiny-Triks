@@ -1,0 +1,83 @@
+/* ========================================================================================== */
+/* ============================== The Varables ============================== */
+/* ========================================================================================== */
+:root {
+  --main-color: hsla(0, 0%, 90%, 0.1);
+  --hover-color: hsl(160, 95%, 55%);
+  --main-duration: 1s;
+}
+/* ========================================================================================== */
+/* ============================== The Globel Rule ============================== */
+/* ========================================================================================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+@font-face {
+  font-family: consola;
+  src: url(../fonts/consola.ttf);
+}
+/* ========================================================================================== */
+/* ============================== The Body ============================== */
+/* ========================================================================================== */
+body {
+  background: hsl(230, 45%, 20%);
+  font-family: consola, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* ========================================================================================== */
+/* ============================== The Typing Menu ============================== */
+/* ========================================================================================== */
+.typing-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.typing-menu ul li a {
+  color: var(--main-color);
+  font-size: 6vw;
+  width: fit-content;
+  height: 100%;
+  position: relative;
+}
+.typing-menu ul li a::after {
+  content: attr(data-text);
+  color: var(--hover-color);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.typing-menu:hover ul li a::after {
+  animation: back-up 0.5s steps(calc(var(--index) * 1)) forwards;
+}
+@keyframes back-up {
+  to {
+    width: 0;
+  }
+}
+.typing-menu ul li a:hover::after {
+  animation: typing calc(var(--index) * 250ms) steps(calc(var(--index) * 1));
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
