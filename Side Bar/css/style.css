@@ -1,0 +1,216 @@
+/*
+---------------------------------------------
+Table Of Contact :
+- Varables => 23
+  - Color Varavles => 29
+  - Transition Varavles => 38
+- Globel Rule => 46
+- Nav => 64
+- Ul => 79
+- Li => 89
+- Links [A] => 100
+- Icons => 115
+- Text => 132
+- Indicator => 151
+  - Indicator Before And After => 185
+  - Indicator Before => 199
+  - Indicator After => 209
+---------------------------------------------
+*/
+
+/*
+---------------------------------------------
+Varables
+---------------------------------------------
+*/
+
+/*
+---------------------------------------------
+Color Varavles
+---------------------------------------------
+*/
+:root {
+  --main-color: hsl(228, 7%, 14%);
+  --secondary-color: hsl(132, 98%, 58%);
+}
+/*
+---------------------------------------------
+Transition Varavles
+---------------------------------------------
+*/
+:root {
+  --main-duration: 0.5s;
+}
+/*
+---------------------------------------------
+Globel Rule
+---------------------------------------------
+*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: var(--main-color);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*
+---------------------------------------------
+Nav
+---------------------------------------------
+*/
+nav {
+  background: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  width: 400px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/*
+---------------------------------------------
+Ul
+---------------------------------------------
+*/
+nav ul {
+  list-style: none;
+  width: 350px;
+  display: flex;
+}
+/*
+---------------------------------------------
+Li
+---------------------------------------------
+*/
+nav ul li {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  z-index: 1;
+}
+/*
+---------------------------------------------
+Links [A]
+---------------------------------------------
+*/
+nav ul li a {
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/*
+---------------------------------------------
+Icons
+---------------------------------------------
+*/
+nav ul li a .icon {
+  color: var(--main-color);
+  font-size: 1.5em;
+  line-height: 75px;
+  text-align: center;
+  transition: var(--main-duration);
+  display: block;
+  position: relative;
+}
+nav ul li.active a .icon {
+  transform: translateY(-32px);
+}
+/*
+---------------------------------------------
+Text
+---------------------------------------------
+*/
+nav ul li a .text {
+  color: var(--main-color);
+  opacity: 0;
+  font-size: 0.85em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: var(--main-duration);
+  position: absolute;
+  transform: translateY(20px);
+}
+nav ul li.active a .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+/*
+---------------------------------------------
+Indicator
+---------------------------------------------
+*/
+.indicator {
+  background: var(--secondary-color);
+  border: 6px solid var(--main-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: var(--main-duration);
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -50%;
+}
+nav ul li.active ~ .indicator {
+  opacity: 1;
+}
+nav ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(70px * 0));
+}
+nav ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(70px * 1));
+}
+nav ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(70px * 2));
+}
+nav ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(70px * 3));
+}
+nav ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(70px * 4));
+}
+/*
+---------------------------------------------
+Indicator Before And After
+---------------------------------------------
+*/
+.indicator::before,
+.indicator::after {
+  content: "";
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+}
+/*
+---------------------------------------------
+Indicator Before
+---------------------------------------------
+*/
+.indicator::before {
+  border-top-right-radius: 20px;
+  box-shadow: 1px -10px 0 0 var(--main-color);
+  left: -22px;
+}
+/*
+---------------------------------------------
+Indicator After
+---------------------------------------------
+*/
+.indicator::after {
+  border-top-left-radius: 20px;
+  box-shadow: -1px -10px 0 0 var(--main-color);
+  right: -22px;
+}
